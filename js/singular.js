@@ -1,27 +1,23 @@
 let studentData;
 
 document.addEventListener('DOMContentLoaded', function() {
-    try {
+    
         studentData = JSON.parse(localStorage.getItem('studentData')) || {
-            name: 'Karthi',
-            email: 'karthi@gmmail.com',
-            phone: '7305477760',
-            dateAdmission: '08-Dec, 2021',
+            name: 'Валижон',
+            email: 'kuvandikovvalizon@gmmail.com',
+            phone: '+998 97 744-41-82	',
+            dateAdmission: '58528741548745157+845',
         };
-        localStorage.setItem('studentData', JSON.stringify(studentData));
-    } catch (error) {
-        console.error('Error loading student data:', error);
-    }
+        
 
     renderStudentProfile();
 });
 
-// Render Student Profile function
 function renderStudentProfile() {
     const profileContainer = document.getElementById('studentProfile');
     
     profileContainer.innerHTML = `
-        
+    
 
         <div class="flex gap-8">
             <div class="relative">
@@ -37,22 +33,22 @@ function renderStudentProfile() {
             <div class="space-y-4">
                 <div>
                     <label class="text-sm text-gray-500">Name</label>
-                    <p class="font-medium">${studentData.name}</p>
+                    <p class="font-medium">Валижон</p>
                 </div>
 
                 <div>
                     <label class="text-sm text-gray-500">Email</label>
-                    <p class="font-medium">${studentData.email}</p>
+                    <p class="font-medium">kuvandikovvalizon@gmail.com</p>
                 </div>
 
                 <div>
                     <label class="text-sm text-gray-500">Phone</label>
-                    <p class="font-medium">${studentData.phone}</p>
+                    <p class="font-medium">+998 97 744-41-82</p>
                 </div>
 
                 <div>
                     <label class="text-sm text-gray-500">Date Admission</label>
-                    <p class="font-medium">${studentData.dateAdmission}</p>
+                    <p class="font-medium">58528741548745157</p>
                 </div>
             </div>
         </div>

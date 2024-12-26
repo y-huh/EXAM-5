@@ -1,16 +1,12 @@
-// Variable declarations
 let elStudentTable, elModalWrapper, elModalInner, studentsList;
 
-// DOM Content Loaded Event Listener
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize variables
-  elStudentTable = document.querySelector(".product-table");
-  elModalWrapper = document.querySelector("#wrapper");
-  elModalInner = document.querySelector(".modal-inner");
+ elStudentTable = document.querySelector(".product-table");
+ elModalWrapper = document.querySelector("#wrapper");
+ elModalInner = document.querySelector(".modal-inner");
   const addStudentBtn = document.querySelector(".login-btn");
   
 
-  // Initialize studentsList
   try {
     studentsList = JSON.parse(localStorage.getItem("students")) || [];
   } catch (error) {
@@ -18,13 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     studentsList = [];
   }
 
-  // Render initial students
   renderStudents(studentsList, elStudentTable);
 
-  // Add event listeners
   addStudentBtn.addEventListener("click", handleAddBtnClick);
 
-  // Modal Close
   elModalWrapper.addEventListener("click", (e) => {
     if (e.target.id === "wrapper") {
       elModalWrapper.classList.add("scale-0");
@@ -32,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Render Students function
 function renderStudents(arr, list) {
   list.innerHTML = "";
   arr.forEach(student => {
@@ -66,7 +58,6 @@ function renderStudents(arr, list) {
   });
 }
 
-// Add Student function
 function handleAddBtnClick() {
   elModalWrapper.classList.remove("scale-0");
   elModalInner.innerHTML = `
@@ -75,25 +66,25 @@ function handleAddBtnClick() {
         <div class="w-[49%] flex flex-col space-y-[20px]">
           <label>
             <span class="text-[23px] text-[#898989] pl-2 mb-1">Name</span>
-            <input name="name" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Student Name" />
+            <input required name="name" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Student Name" />
           </label>
           <label>
             <span class="text-[23px] text-[#898989] pl-2 mb-1">Email</span>
-            <input name="email" type="email" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Email" />
+            <input required name="email" type="email" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Email" />
           </label>
           <label>
             <span class="text-[23px] text-[#898989] pl-2 mb-1">Phone</span>
-            <input name="phone" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Phone" />
+            <input required name="phone" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Phone" />
           </label>
         </div>
         <div class="w-[49%] flex flex-col space-y-[20px]">
           <label>
             <span class="text-[23px] text-[#898989] pl-2 mb-1">Enroll Number</span>
-            <input name="enrollNumber" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Enroll Number" />
+            <input required name="enrollNumber" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Enroll Number" />
           </label>
           <label>
             <span class="text-[23px] text-[#898989] pl-2 mb-1">Date Admission</span>
-            <input name="dateAdmission" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Date Admission" />
+            <input required name="dateAdmission" class="w-full py-[15px] pl-[10px] text-[25px] rounded-[5px] bg-slate-200" placeholder="Date Admission" />
           </label>
         </div>
       </div>
@@ -120,24 +111,20 @@ function handleAddBtnClick() {
     setTimeout(() => {
       elBtnSubmit.innerHTML = "Add Student";
       studentsList.push(data);
-      try {
         localStorage.setItem("students", JSON.stringify(studentsList));
-      } catch (error) {
-        console.error("Error saving to localStorage:", error);
-      }
+      
       renderStudents(studentsList, elStudentTable);
       elModalWrapper.classList.add("scale-0");
     }, 1000);
   });
 }
 
-// Edit Student function
 function handleEditBtnClick(id) {
   elModalWrapper.classList.remove("scale-0");
   let editStudent = studentsList.find(item => item.id == id);
   
   elModalInner.innerHTML = `
-    <form class="edit-form w-[915px] mx-auto">
+    <form class="edit-form w-[915px] mx-auto autocomplete="off"">
       <div class="flex justify-between">
         <div class="w-[49%] flex flex-col space-y-[20px]">
           <label>
@@ -185,25 +172,17 @@ function handleEditBtnClick(id) {
       elEditBtn.innerHTML = `Update Student`;
       elModalWrapper.classList.add("scale-0");
       renderStudents(studentsList, elStudentTable);
-      try {
         localStorage.setItem("students", JSON.stringify(studentsList));
-      } catch (error) {
-        console.error("Error saving to localStorage:", error);
-      }
+      
     }, 1000);
   });
 }
 
-// Delete Student function
 function handleDeleteStudent(id) {
-  if (confirm("Are you sure you want to delete this student?")) {
     const deleteIndex = studentsList.findIndex(item => item.id == id);
     studentsList.splice(deleteIndex, 1);
     renderStudents(studentsList, elStudentTable);
-    try {
-      localStorage.setItem("students", JSON.stringify(studentsList));
-    } catch (error) {
-      console.error("Error saving to localStorage:", error);
-    }
+    localStorage.setItem("students", JSON.stringify(studentsList));
+
+
   }
-}
