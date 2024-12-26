@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-300">
+  <div class="flex">
+    <div class="w-[20%] flex flex-col pt-[18px] items-center bg-[#F2EAE1] h-[100vh] overflow-y-auto">
+      <a href="" class="">
+        <img class="" src="./images/logo2.svg" alt="Logo img" width="250" height="34">
+      </a>
+      <div class="mt-[54px]">
+        <a class="" href="">
+            <img class="rounded-[50%] mb-[20px]" src="./images/indianguy.png" alt="">
+        </a>
+        <div class="flex flex-col justify-center items-center gap-[10px]">
+            <strong class="font-bold text-[17px] leading-[21px]">Karthi Madesh</strong>
+            <span class="text-[#FEAF00] font-medium ">Admin</span>
+        </div>
+      </div>
+      <a class="w-[193px] py-[13px] flex items-center justify-center gap-[10px] mt-[63px] rounded-[5px] bg-[#FEAF00]" href="">
+        <img src="./images/study.svg" alt="">
+        Students
+      </a>
+      <a class="flex items-center justify-center gap-[20px] mt-[450px] rounded-[5px]" href="./index.html">
+        Logout
+        <img src="./images/quit.svg" alt="">
+      </a>
+    </div>
+    <div class="w-[80%] bg-[#f8f8f8]">
+      <div class="flex items-center justify-between py-[12px] bg-[#F2EAE1] px-[61px] gap-[28px]">
+        <a href=""><img src="./images/back.svg" alt=""></a>
+        <div class="flex gap-[27px] items-center justify-center">
+          <label class="flex w-[212px] bg-white rounded-[10px]" for="">
+          <input
+          id="searchInput"
+          class="w-[190px] py-[10px] border-none outline-none pl-[13px] rounded-[10px]" 
+          type="text" 
+          placeholder="Search...">
+          <img src="./images/search 1.svg" alt="">
+          </label>
+          <a href=""><img src="./images/bell 1.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="py-[22px] px-[42px] flex border-b-[1px] border-[#E5E5E5] items-center bg-[#f8f8f8] justify-between">
+        <strong class="font-bold text-[22px] leading-[27px]">Students List</strong>
+        <div class="flex items-center gap-[30px]">
+          <a href="" class=""><img src="./images/sort 1.svg" alt=""></a>
+          <button class="login-btn border-transparent w-[200px] border-[1px] h-[45px] duration-300 text-center text-white bg-[#FEAF00] hover:border-[1px] hover:border-[#FEAF00] hover:bg-white hover:text-[#FEAF00] rounded-[5px]">ADD NEW STUDENT</button>
+        </div>
+      </div>    
+      <div class="p-6">
+        <div id="studentProfile" class="bg-white rounded-lg p-8 max-w-2xl relative">
+        </div>
+    </div>
+    <script src="./js/singular.js"></script>
+</body>

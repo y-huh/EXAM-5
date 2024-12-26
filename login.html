@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./images/log-in.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign up</title>
+</head>
+<body class="body-bg flex items-center justify-center">
+
+    <div class="w-[475px] h-[550px] bg-white rounded-[20px] flex items-center justify-center flex-col mt-[175px]">
+        <a class="mb-[45px]" href="#"><img src="./images/logo.svg" alt=""></a>
+        <div class="text-center">
+            <h2 class="font-semibold mb-[10px] text-[22px] leading-[26px]">SIGN UP</h2>
+            <p class="text-[14px] text-[#6C6C6C] leading-[17px]">Enter your credentials to access your account</p>
+        </div>
+        <form class="login-form flex-col flex  mt-[50px]">
+            <label class="flex flex-col outline-none gap-[10px]">
+                <span class="text-[#6C6C6C] ">Login</span>
+                <input autocomplete="off" required name="username" class="outline-none border-[1px]   border-[#E5E5E5] placeholder:text-[#E5E5E5] w-[415px] h-[45px] py-[15px] pl-[15px] rounded-[6px]" type="text" placeholder="Enter your login" name="" id="">
+            
+                <span class="text-[#6C6C6C] mt-[20px]">Password</span>
+                <input autocomplete="off" required name="password" class= "outline-none border-[1px]  border-[#E5E5E5] placeholder:text-[#E5E5E5] w-[415px] h-[45px] py-[15px] pl-[15px] rounded-[6px]" type="password" placeholder="Enter your password" name="" id="">
+            <button class="login-btn w-[415px] border-[1px] border-transparent h-[45px] duration-300 text-center text-white bg-[#FEAF00] mt-[35px] hover:border-[1px] hover:border-[#FEAF00] hover:bg-white hover:text-[#FEAF00] rounded-[5px]">SIGN IN</button>
+                
+            </label>
+            
+            <a class="text-center mt-[12px] hover:text-[#FEAF00] duration-300" href="">Sign up</a>
+        </form>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+</body>
+</html>
